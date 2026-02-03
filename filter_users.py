@@ -28,10 +28,24 @@ def filter_users_by_name(name):
         print(user)
 
 if __name__ == "__main__":
-    filter_option = input("What would you like to filter by? (Currently, only 'name' is supported): ").strip().lower()
-    
+    filter_option = input("What would you like to filter by? ('name' 'age' or 'email' is supported): ").strip().lower()
+
+    type_option = ""
     if filter_option == "name":
-        name_to_search = input("Enter a name to filter users: ").strip()
-        filter_users_by_name(name_to_search)
+        type_option = "a name "
+    elif filter_option == "email":
+        type_option = "an email "
+    elif filter_option == "age":
+        type_option = "an age "
+
+    search_value  = input("Enter {} to filter users: ").strip()
+
+    if filter_option == "name":
+        filter_users_by_name(search_value)
+    elif filter_option == "email":
+        filter_users_by_email(search_value)
+    elif filter_option == "age":
+        filter_users_by_age(search_value)
+
     else:
         print("Filtering by that option is not yet supported.")
