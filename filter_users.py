@@ -45,7 +45,12 @@ if __name__ == "__main__":
     elif filter_option == "email":
         filter_users_by_email(search_value)
     elif filter_option == "age":
-        filter_users_by_age(search_value)
+        try:
+            age = int(search_value)
+        except ValueError:
+            print("Please enter a valid integer for age.")
+        else:
+            filter_users_by_age(age)
 
     else:
         print("Filtering by that option is not yet supported.")
